@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>卡片</title>
+    <style>
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        grid-gap: 20px;
+      }
+
+      .card {
+        display: grid;
+        grid-template-rows: max-content 200px 1fr;
+        border: 1px solid #ccc;
+      }
+
+      .card img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>卡片组件可以包含各种内容，如头部、图片、内容和页脚。</p>
+
+        <p>每个卡片组件应有相同的高度，并且页脚应该在卡片组件的底部。</p>
+        
+       <p> 当添加到卡片组中时，卡片应在两个维度上对齐。</p>
+    <div class="cards">
+      <article class="card">
+        <header>
+          <h2>A short heading</h2>
+        </header>
+        <img src="https://mdn.github.io/css-examples/css-cookbook/balloons.jpg" alt="Hot air balloons" />
+        <div class="content">
+          <p>
+            The idea of reaching the North Pole by means of balloons appears to
+            have been entertained many years ago.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <header>
+          <h2>A short heading</h2>
+        </header>
+        <img src="https://mdn.github.io/css-examples/css-cookbook/balloons2.jpg" alt="Hot air balloons" />
+        <div class="content">
+          <p>Short content.</p>
+        </div>
+        <footer>I have a footer!</footer>
+      </article>
+
+      <article class="card">
+        <header>
+          <h2>A longer heading in this card</h2>
+        </header>
+        <img src="https://mdn.github.io/css-examples/css-cookbook/balloons.jpg" alt="Hot air balloons" />
+        <div class="content">
+          <p>
+            In a curious work, published in Paris in 1863 by Delaville Dedreux,
+            there is a suggestion for reaching the North Pole by an aerostat.
+          </p>
+        </div>
+        <footer>I have a footer!</footer>
+      </article>
+      <article class="card">
+        <header>
+          <h2>A short heading</h2>
+        </header>
+        <img src="https://mdn.github.io/css-examples/css-cookbook/balloons2.jpg" alt="Hot air balloons" />
+        <div class="content">
+          <p>
+            The idea of reaching the North Pole by means of balloons appears to
+            have been entertained many years ago.
+          </p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

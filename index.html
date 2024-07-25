@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>常见的组件以及样式</title>
+    <link rel="stylesheet" href="./common/style.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link
+      rel="import"
+      href="./components/split-navigation/index.html"
+      id="page1"
+    />
+    <style>
+      html,
+      body {
+        box-sizing: border-box;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .wrapper {
+        box-sizing: border-box;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .page-header,
+      .page-footer {
+        flex-grow: 0;
+        flex-shrink: 0;
+        text-align: center;
+        padding: 20px;
+        background-color: #4b464a;
+        color: white;
+      }
+      .page-body {
+        flex-grow: 1;
+        display: flex;
+      }
+      .aside {
+        width: 120px;
+        overflow-y: auto;
+        flex-grow: 0;
+        padding: 10px;
+        text-align: center;
+      }
+      .aside .nav li {
+        padding-bottom: 10px;
+      }
+      .aside .nav li:hover{
+        cursor: pointer;
+      }
+      .aside .nav li.active{
+        color: steelblue;
+      }
+      .main {
+        flex-grow: 1;
+        border-left: 2px solid #ccc;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="page-header">This is the header</header>
+      <div class="page-body">
+        <aside class="aside">
+          <ul id="nav" class="nav">
+            <li data-index="0">分离式导航</li>
+            <li data-index="1">面包屑导航</li>
+          </ul>
+        </aside>
+        <main class="main">
+          <iframe id="iframe" src="" width="100%" height="100%"></iframe>
+        </main>
+      </div>
+      <footer class="page-footer">Sticky footer-20204</footer>
+    </div>
+  </body>
+  <script src="./utils/utils.js"></script>
+  <script>
+    const list = [
+      {
+        name: "分离式导航",
+        url: "./components/split-navigation/index.html",
+      },
+      {
+        name: "面包屑导航",
+        url: "./components/breadcrumb-navigation/index.html",
+      },
+      {
+        name: "卡片",
+        url: "./components/card/index.html",
+      },
+      {
+        name: "带有图标的列表",
+        url: "./components/list-group-with-badges/index.html",
+      },
+      {
+        name: "多列",
+        url: "./components/columns/index.html",
+      },
+      {
+        name: "媒体对象",
+        url: "./components/media-objects/index.html",
+      },
+      {
+        name: "粘性页脚",
+        url: "./components/sticky-footers/index.html",
+      },
+    ];
+    const iframe = document.getElementById("iframe");
+    const nav = document.getElementById("nav");
+    const creatDom = () => {
+      let str = "";
+      for (let i = 0; i < list.length; i++) {
+        str += `<li data-index="${i}">${list[i].name}</li>`;
+      }
+      nav.innerHTML = str;
+    };
+    creatDom();
+    const li_list = nav.getElementsByTagName('li');
+    const init = () => {
+      iframe.src = list[0].url;
+      addClassName(li_list[0],'active')
+    };
+    // 初始化
+    init();
+    
+    function removeliClass(){
+      for(let i=0;i<li_list.length;i++){
+        removeClassName(li_list[i],'active')
+      }
+    }
+    nav.addEventListener(
+      "click",
+      (event) => {
+        console.log("event", event.target.dataset.index);
+        const index = event.target.dataset.index;
+        const target = event.target;
+        if (!index) return;
+        removeliClass()
+        iframe.src = list[index].url;
+        addClassName(target,'active')
+      },
+      false
+    );
+   
+    
+  </script>
+</html>

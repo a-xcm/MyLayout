@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>粘性页脚</title>
+    <style>
+    html,body{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        box-sizing: border-box;
+    }
+      .wrapper {
+        min-height: 100%;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="page-header">This is the header</header>
+      <article class="page-body">
+        <p>
+            粘性页脚模式是指当页面内容不足以填满视口高度时，页脚会“粘附”在视口底部的一种模式。在本教程中，我们将介绍创建粘性页脚的几种技术。
+          </p>
+          <p>粘性页脚模式需要满足以下要求：</p>
+      
+          <ul>
+            <li>当内容不足以填满视口时，页脚粘附在视口底部。</li>
+            <li>如果页面内容超过视口底部，页脚会正常地位于内容下方。</li>
+          </ul>
+        <p>
+          Main page content here, add more if you want to see the footer push
+          down.
+        </p>
+      </article>
+      <footer class="page-footer">Sticky footer</footer>
+    </div>
+  </body>
+</html>
